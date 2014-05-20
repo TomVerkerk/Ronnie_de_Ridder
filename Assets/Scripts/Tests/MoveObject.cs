@@ -12,12 +12,12 @@ public class MoveObject : BaseTrackingHandler, ITrackableEventHandler
             updater();
 
         base.OnTrackingFound();
-        Renderer[] renderss = GetComponentsInChildren<Renderer>(true);
+      /*  Renderer[] renderss = GetComponentsInChildren<Renderer>(true);
 
         foreach (Renderer r in renderss)
         {
             r.material.color = new Color(Random.value, Random.value, Random.value);
-        }
+        }*/
     }
 
     protected override void OnTrackingLost()

@@ -60,20 +60,7 @@ public class BaseTrackingHandler : MonoBehaviour,
 
     protected virtual void OnTrackingFound()
     {
-        Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
-        Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
-
-        // Enable rendering:
-        foreach (Renderer component in rendererComponents)
-        {
-            component.enabled = true;
-        }
-
-        // Enable colliders:
-        foreach (Collider component in colliderComponents)
-        {
-            component.enabled = true;
-        }
+        EnableObjects(true);
 
         //Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
     }
@@ -81,22 +68,33 @@ public class BaseTrackingHandler : MonoBehaviour,
 
     protected virtual void OnTrackingLost()
     {
+      
+        EnableObjects(false);
+      //  Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+    }
+
+    protected virtual void EnableObjects(bool status)
+    {
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
         Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+        ParticleEmitter[] EmitterComponets = GetComponentsInChildren<ParticleEmitter>(true);
 
         // Disable rendering:
         foreach (Renderer component in rendererComponents)
         {
-            component.enabled = false;
+            component.enabled = status;
         }
 
         // Disable colliders:
         foreach (Collider component in colliderComponents)
         {
-            component.enabled = false;
+            component.enabled = status;
         }
 
-      //  Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+        foreach (ParticleEmitter componet in EmitterComponets)
+        {
+            componet.enabled = status;
+        }
     }
     #endregion
 }

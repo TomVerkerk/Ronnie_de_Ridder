@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Object : MonoBehaviour {
+public class Object : MonoBehaviour
+{
     bool rooted = false;
     Quaternion orginalRot;
-	// Use this for initialization
-	void Start () {
-        transform.parent.gameObject.GetComponent<MoveObject>().updater+=rotate;
+    // Use this for initialization
+    void Start()
+    {
+        transform.parent.gameObject.GetComponent<MoveObject>().updater += rotate;
 
         orginalRot = transform.rotation;
-	}
+    }
 
     void rotate()
     {
