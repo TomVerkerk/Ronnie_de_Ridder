@@ -1,6 +1,6 @@
 GameLab: augmented reality book
 =======
 
-<b>Gemaakt door Tom Verkerk, Jesse Stam , Aaron Ligthart, Iris van den Velden en Lieske Timmermans.
-Art, Aninimatie en Geluid door Aaron Ligthart, Iris van den Velden en Lieske Timmermans</b>
+<b>Gemaakt door Tom Verkerk, Jesse Stam , Aaron Ligthart, Iris van den Velden en Lieske Timmermans.</b>
+Art, Aninimatie en Geluid door Aaron Ligthart, Iris van den Velden en Lieske Timmermans
 
