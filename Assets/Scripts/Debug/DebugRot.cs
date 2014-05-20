@@ -6,6 +6,6 @@ public class DebugRot : MonoBehaviour {
     public Transform toTrack;
 	void Update () 
     {
-        guiText.text = ("Rot: " + toTrack.rotation + "\nPos: " + toTrack.position);
+        guiText.text = ("Rot: " + toTrack.rotation.eulerAngles + "\nPos: " + toTrack.position);
 	}
 }
