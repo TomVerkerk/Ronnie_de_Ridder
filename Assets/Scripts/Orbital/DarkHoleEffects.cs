@@ -18,7 +18,10 @@ namespace Orbital
         {
             if (active)
             {
-                particleSystem.emissionRate = 100f;
+                if (particleSystem != null)
+                {
+                    particleSystem.emissionRate = 100f;
+                }
             }
         }
 
