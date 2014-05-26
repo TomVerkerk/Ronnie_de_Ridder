@@ -15,7 +15,7 @@ public class SelectObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		screenPerc = 100/Screen.width;
+		screenPerc = Screen.width/100;
 		arrowLeft.pixelInset = new Rect(0,0,Screen.width*0.2f,Screen.height);
 		arrowRight.pixelInset = new Rect(Screen.width*0.8f,0,Screen.width*0.2f,Screen.height);
 	}
@@ -26,7 +26,7 @@ public class SelectObject : MonoBehaviour {
 		{
 			if(UIon == true)
 			{
-				ObjectMove();
+				Move();
 			}
 			else
 			{
@@ -40,21 +40,24 @@ public class SelectObject : MonoBehaviour {
 
 	}
 
-	void ObjectMove()
+	void Move()
 	{
-		if(touched == false)
+		foreach(var t in Input.touches)
 		{
-			if(screenPerc * Input.touches[1].position.x >= 80)
+			if(touched == false)
 			{
-				selected.transform.Translate(new Vector3(100,0,0));
-			}
-			else if(screenPerc * Input.touches[1].position.x <= 20)
-			{
-				selected.transform.Translate(new Vector3(-100,0,0));
-			}
-			else
-			{
-				RaycastObject();
+				if(t.position.x/screenPerc >= 82)
+				{
+					selected.transform.Translate(new Vector3(10,0,0));
+				}
+				else if(t.position.x/screenPerc <= 20)
+				{
+					selected.transform.Translate(new Vector3(-10,0,0));
+				}
+				else
+				{
+					RaycastObject();
+				}
 			}
 		}
 	}
