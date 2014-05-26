@@ -8,6 +8,12 @@ public class Object : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
+=======
+        transform.parent.gameObject.GetComponent<MoveObject>().updater += rotate;
+
+        orginalRot = transform.rotation;
+>>>>>>> b070dc314208887f3232e7d0cfa729ed47c43cdb
     }
 
     void rotate()
