@@ -12,12 +12,21 @@ public class Loader : MonoBehaviour
 
     private Vector2 screenCenter;
     private Vector2 screenSize;
+    [Range(0f, 1f)]
+    public float posX;
+    [Range(0f, 1f)]
+    public float posY;
+
+    private Vector2 pos;
+
+    
     #endregion
 
     void Start()
     {
         screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        screenSize = new Vector2(Screen.width, Screen.height);
+        screenSize = new Vector2(Screen.width,Screen.height);
+        pos = new Vector2(Screen.width*posX, Screen.height*posY);
     }
 
     public void SyncLoadLevel(string levelName)
@@ -31,20 +40,38 @@ public class Loader : MonoBehaviour
         yield return async;
     }
 
+    void Update()
+    {
+
+    }
+
     void OnGUI()
     {
+
+        screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        screenSize = new Vector2(Screen.width, Screen.height);
+
+        pos = new Vector2(Screen.width * posX, Screen.height * posY);
+
         if (async != null)
         {
             //GUI.DrawTexture(new Rect(screenCenter.x, screenCenter.y, 100, 50), emptyProgressBar);
-           // GUI.DrawTexture(new Rect(screenCenter.x, screenCenter.y, 100 * async.progress, 50), fullProgressBar);
-            
-            GUI.DrawTexture(new Rect(screenCenter.x, screenSize.y - 100, 100, 50), emptyProgressBar);
-            GUI.DrawTexture(new Rect(screenCenter.x - screenSize.x * 100 - 6f, screenSize.y - 100, screenSize.x - 6f * 100, 50), fullProgressBar);
+            // GUI.DrawTexture(new Rect(screenCenter.x, screenCenter.y, 100 * async.progress, 50), fullProgressBar);
+            GUI.skin.label.alignment = TextAnchor.UpperLeft;
+            GUI.DrawTexture(new Rect(pos.x, pos.y, screenSize.x, 50), emptyProgressBar);
+            GUI.DrawTexture(new Rect(pos.x, pos.y, screenSize.x * async.progress, 50), fullProgressBar);
             //async.progress
-            
             GUI.skin.label.alignment = TextAnchor.MiddleCenter;
-            GUI.Label(new Rect(screenCenter.x, screenCenter.y+50, 100, 50), string.Format("{0:N0}%", async.progress * 100f));
+            GUI.Label(new Rect(screenCenter.x, screenSize.y - 100 + 50, 100, 50), string.Format("{0:N0}%", async.progress * 100f));
 
+        }
+        else
+        {
+            GUI.skin.label.alignment = TextAnchor.UpperLeft;
+
+            Debug.Log(new Rect((screenSize.x * 1f) + pos.x, pos.y, screenSize.x - 6f * 1f, 50));
+            Debug.Log("ScreenSize: " + screenSize + " ScreenCenter : " + screenCenter);
+            GUI.TextArea(new Rect(pos.x, pos.y, screenSize.x * (Time.time / 100f), 50), "Test");
         }
     }
 }
