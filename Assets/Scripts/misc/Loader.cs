@@ -48,20 +48,16 @@ public class Loader : MonoBehaviour
     void OnGUI()
     {
 
-        screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        screenSize = new Vector2(Screen.width, Screen.height);
-
-        pos = new Vector2(Screen.width * posX, Screen.height * posY);
-
         if (async != null)
         {
             //GUI.DrawTexture(new Rect(screenCenter.x, screenCenter.y, 100, 50), emptyProgressBar);
             // GUI.DrawTexture(new Rect(screenCenter.x, screenCenter.y, 100 * async.progress, 50), fullProgressBar);
             GUI.skin.label.alignment = TextAnchor.UpperLeft;
-            GUI.DrawTexture(new Rect(pos.x, pos.y, screenSize.x, 50), emptyProgressBar);
-            GUI.DrawTexture(new Rect(pos.x, pos.y, screenSize.x * async.progress, 50), fullProgressBar);
+            GUI.DrawTexture(new Rect(pos.x, pos.y, screenSize.x-(pos.x*2f), 50), emptyProgressBar);
+            GUI.DrawTexture(new Rect(pos.x, pos.y, (screenSize.x - (pos.x * 2f)) * async.progress, 50), fullProgressBar);
             //async.progress
             GUI.skin.label.alignment = TextAnchor.MiddleCenter;
+            GUI.skin.label.fontSize = 32;
             GUI.Label(new Rect(screenCenter.x, screenSize.y - 100 + 50, 100, 50), string.Format("{0:N0}%", async.progress * 100f));
 
         }
