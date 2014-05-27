@@ -8,27 +8,9 @@ public class Click : MonoBehaviour {
 
     void Start()
     {
-        if (LoadLevel=="")
+        if (LoadLevel==""&&!ExitGame)
         {
             Destroy(this);
-        }
-    }
-
-    void Update()
-    {
-        // Code for _OnTouchDown in the iPhone. Unquote to test.
-        RaycastHit hit = new RaycastHit();
-        for (int i = 0; i < Input.touchCount; ++i)
-        {
-            if (Input.GetTouch(i).phase.Equals(TouchPhase.Began))
-            {
-                // Construct a ray from the current touch coordinates
-                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                if (Physics.Raycast(ray, out hit))
-                {
-                    hit.transform.gameObject.SendMessage("_OnTouchDown");
-                }
-            }
         }
     }
     void IWillDo()
@@ -37,7 +19,7 @@ public class Click : MonoBehaviour {
         {
             Application.Quit();
         }
-        else
+        else if(LoadLevel!="")
         {
             transform.parent.parent.gameObject.GetComponent<Loader>().SyncLoadLevel(LoadLevel);
 

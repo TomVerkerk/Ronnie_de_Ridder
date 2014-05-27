@@ -34,6 +34,7 @@ namespace menu
                     for (int j = 0; j < k; j++)
                     {
                         Menus[j].move = false;
+                        Menus[j].atNewPos = false;
                         if (Menus[j].menuID == buttons[i].OpenMenuID)
                         {
                             Menus[j].move = true;

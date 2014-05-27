@@ -41,11 +41,6 @@ public class Loader : MonoBehaviour
         yield return async;
     }
 
-    void Update()
-    {
-
-    }
-
     void OnGUI()
     {
 
