@@ -10,6 +10,6 @@ public class BlinkingText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        m.color = new Color(1,1,1,Mathf.PingPong(Time.time / 3f, 0.8f)+0.2f);
+        m.color = new Color(1,1,1,Mathf.PingPong(Time.time / 2f, 0.8f)+0.2f);
 	}
 }
