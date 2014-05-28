@@ -9,13 +9,16 @@ public class SelectObject : MonoBehaviour {
 	private bool unselect = false;
 	private bool retap = false;
 	private bool UIon = false;
-	private float screenPerc;
+	private float screenPercX;
+	private float screenPercY;
+	public float objectMoveSpeed;
 	public GUITexture arrowLeft;
 	public GUITexture arrowRight;
 
 	// Use this for initialization
 	void Start () {
-		screenPerc = Screen.width/100;
+		screenPercX = Screen.width/100;
+		screenPercY = Screen.height/100;
 		arrowLeft.pixelInset = new Rect(0,0,Screen.width*0.2f,Screen.height);
 		arrowRight.pixelInset = new Rect(Screen.width*0.8f,0,Screen.width*0.2f,Screen.height);
 	}
@@ -46,13 +49,27 @@ public class SelectObject : MonoBehaviour {
 		{
 			if(touched == false)
 			{
-				if(t.position.x/screenPerc >= 82)
+				if(t.position.x/screenPercX >= 80)
 				{
-					selected.transform.Translate(new Vector3(10,0,0));
+					if(t.position.y/screenPercY >= 50)
+					{
+						selected.transform.Translate(Vector3.right * objectMoveSpeed * Time.deltaTime);
+					}
+					else
+					{
+						selected.transform.Translate(Vector3.back * objectMoveSpeed * Time.deltaTime);
+					}
 				}
-				else if(t.position.x/screenPerc <= 20)
+				else if(t.position.x/screenPercX <= 20)
 				{
-					selected.transform.Translate(new Vector3(-10,0,0));
+					if(t.position.y/screenPercY >=50)
+					{
+						selected.transform.Translate(Vector3.left * objectMoveSpeed * Time.deltaTime);
+					}
+					else
+					{
+						selected.transform.Translate(Vector3.forward * objectMoveSpeed * Time.deltaTime);
+					}
 				}
 				else
 				{
@@ -70,42 +87,53 @@ public class SelectObject : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast(ray,out hit))
 			{
-				if(start == true)
+				if(hit.transform.tag == "Moveable")
 				{
-					ButtonsOn();
-					hit.transform.GetComponent<ObjectInterface>().renderer.material.color = Color.yellow;
-				}
-				else if(hit.transform.gameObject.name != selected.transform.gameObject.name)
-				{
-					ButtonsOn();
-					hit.transform.GetComponent<ObjectInterface>().renderer.material.color = Color.yellow;
-					if(unselect == false && start == false)
+					if(start == true)
 					{
-						selected.transform.GetComponent<ObjectInterface>().renderer.material.color = Color.white;
+						hit.transform.gameObject.renderer.material.color = Color.yellow;
+						ButtonsOn();
 					}
-				}
-				else if(unselect == false && retap == false)
-				{
-					hit.transform.GetComponent<ObjectInterface>().renderer.material.color = Color.white;
-					ButtonsOff();
-					retap = true;
+					else if(hit.transform.gameObject.name != selected.transform.gameObject.name)
+					{
+						hit.transform.gameObject.renderer.material.color = Color.yellow;
+						if(unselect == false && start == false)
+						{
+							selected.transform.gameObject.renderer.material.color = Color.white;
+						}
+						retap = false;
+						ButtonsOn();
+					}
+					else if(unselect == false && retap == false)
+					{
+						hit.transform.gameObject.renderer.material.color = Color.white;
+						ButtonsOff();
+						retap = true;
+					}
+					else
+					{
+						hit.transform.gameObject.renderer.material.color = Color.yellow;
+						retap = false;
+						ButtonsOn();
+					}
+					unselect = false;
+					selected = hit;
+					start = false;
 				}
 				else
 				{
-					ButtonsOn();
-					hit.transform.GetComponent<ObjectInterface>().renderer.material.color = Color.yellow;
+					selected.transform.gameObject.renderer.material.color = Color.white;
+					unselect = true;
 					retap = false;
+					ButtonsOff();
 				}
-				unselect = false;
-				selected = hit;
-				start = false;
 			}
 			else
 			{
-				ButtonsOff();
-				selected.transform.GetComponent<ObjectInterface>().renderer.material.color = Color.white;
+				selected.transform.gameObject.renderer.material.color = Color.white;
 				unselect = true;
 				retap = false;
+				ButtonsOff();
 			}
 			touched = true;
 		}
