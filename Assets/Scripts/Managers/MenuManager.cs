@@ -15,7 +15,8 @@ namespace menu
             for (int i = 0; i < Menus.Length; i++)
             {
                 Menus[i].menuID = i;
-                Menus[i].name = "[" + i + "]" + Menus[i].name;
+               if(Application.isEditor)
+                   Menus[i].name = "[" + i + "]" + Menus[i].name;
             }
             Menus[0].move = true;
             
@@ -38,6 +39,7 @@ namespace menu
                         if (Menus[j].menuID == buttons[i].OpenMenuID)
                         {
                             Menus[j].move = true;
+                            currentMenuID = j;
                         }
                     }
                 }
