@@ -3,29 +3,33 @@ using System.Collections;
 
 public class SelectObject : MonoBehaviour {
 
+	public float minSwipePerc;
 	private RaycastHit selected;
 	private bool start = true;
 	private bool touched = false;
 	private bool unselect = false;
 	private bool retap = false;
 	private bool UIon = false;
-	private float screenPercX;
-	private float screenPercY;
 	public float objectMoveSpeed;
-	public GUITexture arrowLeft;
-	public GUITexture arrowRight;
+	private Vector2 swipeBegin;
+	private Vector2 swipeEnd;
 
-	// Use this for initialization
-	void Start () {
-		screenPercX = Screen.width/100;
-		screenPercY = Screen.height/100;
-		arrowLeft.pixelInset = new Rect(0,0,Screen.width*0.2f,Screen.height);
-		arrowRight.pixelInset = new Rect(Screen.width*0.8f,0,Screen.width*0.2f,Screen.height);
-	}
-	
+	private Vector3 target;
+	public bool arrived = true;
+	public GameObject camera;
+	public GameObject cube;
+
 	// Update is called once per frame
 	void Update () {
-		if(Input.touchCount==1)
+		if(arrived == false && start == false)
+		{
+			selected.transform.Translate(Vector3.forward * 30 * Time.deltaTime);
+			if(Vector3.Distance(selected.transform.position,target) < 10)
+			{
+				arrived = true;
+			}
+		}
+		else if(Input.touchCount==1)
 		{
 			if(UIon == true)
 			{
@@ -45,30 +49,29 @@ public class SelectObject : MonoBehaviour {
 
 	void Move()
 	{
-		foreach(var t in Input.touches)
+		foreach(var T in Input.touches)
 		{
-			if(touched == false)
+			if(T.phase == TouchPhase.Began)
 			{
-				if(t.position.x/screenPercX >= 80)
+				swipeBegin.x = ((100f/Screen.width)*T.position.x);
+				swipeBegin.y = ((100f/Screen.height)*T.position.y);
+			}
+			else if(T.phase == TouchPhase.Ended)
+			{
+				swipeEnd.x = ((100f/Screen.width)*T.position.x);
+				swipeEnd.y = ((100f/Screen.height)*T.position.y);
+				if(swipeEnd.x - swipeBegin.x >= minSwipePerc || swipeBegin.x - swipeEnd.x <= -minSwipePerc || swipeEnd.y - swipeBegin.y >= minSwipePerc || swipeBegin.y - swipeEnd.y <= -minSwipePerc)
 				{
-					if(t.position.y/screenPercY >= 50)
-					{
-						selected.transform.Translate(Vector3.right * objectMoveSpeed * Time.deltaTime);
-					}
-					else
-					{
-						selected.transform.Translate(Vector3.back * objectMoveSpeed * Time.deltaTime);
-					}
-				}
-				else if(t.position.x/screenPercX <= 20)
-				{
-					if(t.position.y/screenPercY >=50)
-					{
-						selected.transform.Translate(Vector3.left * objectMoveSpeed * Time.deltaTime);
-					}
-					else
-					{
-						selected.transform.Translate(Vector3.forward * objectMoveSpeed * Time.deltaTime);
+					Vector3 screenPoint = new Vector3(swipeEnd.x,swipeEnd.y,0);
+					Ray swipeRay = Camera.main.ScreenPointToRay(screenPoint);
+					RaycastHit swipeHit;
+					float swipeDis;
+					if(Physics.Raycast(swipeRay,out swipeHit) && swipeHit.transform.tag == "Ground" && start == false)
+				    {
+						swipeDis = Vector3.Distance(camera.transform.position,cube.transform.position);
+						target = swipeRay.GetPoint(swipeDis);
+						selected.transform.LookAt(target);
+						arrived = false;
 					}
 				}
 				else
@@ -92,7 +95,7 @@ public class SelectObject : MonoBehaviour {
 					if(start == true)
 					{
 						hit.transform.gameObject.renderer.material.color = Color.yellow;
-						ButtonsOn();
+						UIon = true;
 					}
 					else if(hit.transform.gameObject.name != selected.transform.gameObject.name)
 					{
@@ -102,19 +105,19 @@ public class SelectObject : MonoBehaviour {
 							selected.transform.gameObject.renderer.material.color = Color.white;
 						}
 						retap = false;
-						ButtonsOn();
+						UIon = true;
 					}
 					else if(unselect == false && retap == false)
 					{
 						hit.transform.gameObject.renderer.material.color = Color.white;
-						ButtonsOff();
+						UIon = false;
 						retap = true;
 					}
 					else
 					{
 						hit.transform.gameObject.renderer.material.color = Color.yellow;
 						retap = false;
-						ButtonsOn();
+						UIon = true;
 					}
 					unselect = false;
 					selected = hit;
@@ -125,7 +128,7 @@ public class SelectObject : MonoBehaviour {
 					selected.transform.gameObject.renderer.material.color = Color.white;
 					unselect = true;
 					retap = false;
-					ButtonsOff();
+					UIon = false;
 				}
 			}
 			else
@@ -133,23 +136,9 @@ public class SelectObject : MonoBehaviour {
 				selected.transform.gameObject.renderer.material.color = Color.white;
 				unselect = true;
 				retap = false;
-				ButtonsOff();
+				UIon = false;
 			}
 			touched = true;
 		}
-	}
-
-	void ButtonsOn()
-	{
-		arrowLeft.enabled=true;
-		arrowRight.enabled=true;
-		UIon = true;
-	}
-
-	void ButtonsOff()
-	{
-		arrowLeft.enabled=false;
-		arrowRight.enabled=false;
-		UIon = false;
 	}
 }
