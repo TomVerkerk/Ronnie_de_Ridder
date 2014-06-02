@@ -5,7 +5,7 @@ public class ResumeGame :menu.TriggerV2 {
 
     Controles GameManager;
     bool UsedPause;
-	void Start () {
+	protected override void Start () {
 	    object[] allObjects = Resources.FindObjectsOfTypeAll(typeof(GameObject)) ;
         foreach (GameObject G in allObjects)
         {
@@ -14,23 +14,25 @@ public class ResumeGame :menu.TriggerV2 {
                 GameManager = G.GetComponent<Controles>();
             }
         }
-        Disabled = true;
-        renderer.material.color = Color.white;
 	}
-
     void Update()
     {
-        if (!UsedPause&&GameManager.GamePaused)
+        if (!UsedPause && GameManager.GamePaused)
         {
             State = true;
             UsedPause = true;
+            OpenMenuID = 1;
+        }
+        else
+        {
+            OpenMenuID = 0;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    protected override void IWillDo()
     {
         GameManager.GamePaused = false;
-
-       
+        UsedPause = false;
+        State = true;
     }
 }
