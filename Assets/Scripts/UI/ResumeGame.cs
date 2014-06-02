@@ -14,6 +14,7 @@ public class ResumeGame :menu.TriggerV2 {
                 GameManager = G.GetComponent<Controles>();
             }
         }
+        GameManager.GamePaused = false;
 	}
     void Update()
     {
