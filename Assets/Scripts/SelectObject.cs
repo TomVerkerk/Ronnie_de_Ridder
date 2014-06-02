@@ -17,6 +17,7 @@ public class SelectObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Application.LoadLevelAdditive("UI-Cam");
 		screenPercX = Screen.width/100;
 		screenPercY = Screen.height/100;
 		arrowLeft.pixelInset = new Rect(0,0,Screen.width*0.2f,Screen.height);

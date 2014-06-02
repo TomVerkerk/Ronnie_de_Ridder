@@ -7,13 +7,22 @@ public class Controles : MonoBehaviour {
 	void Start () {
         Object.DontDestroyOnLoad(this);
 	}
-	
+
+    public bool GamePaused;
+
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.LoadLevel(0);
-            Destroy(this.gameObject);
+            if (Application.loadedLevel == 1)
+            {
+                Application.LoadLevel(0);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                GamePaused = !GamePaused;
+            }
         }
 	}
 }
