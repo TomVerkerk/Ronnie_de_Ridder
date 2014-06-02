@@ -3,8 +3,17 @@ using System.Collections;
 
 public class HitRayFirere : MonoBehaviour
 {
-
+    [SerializeField]
+    private Camera cam;
     // Update is called once per frame
+    void Start()
+    {
+        if (cam == null)
+        {
+            cam = Camera.main;
+        }
+    }
+
     void Update()
     {
         RaycastHit2D hit = new RaycastHit2D();
@@ -17,7 +26,7 @@ public class HitRayFirere : MonoBehaviour
                 {
                     touch = Input.GetTouch(i);
                     //Ray ray = SecondaryCamera.ViewportPointToRay(new Vector3(touch.position.x, touch.position.y, 0));
-                    hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(touch.position), Vector2.zero);
+                    hit = Physics2D.Raycast(cam.ScreenToWorldPoint(touch.position), Vector2.zero);
                     //Debug.Log("test");
                     //Debug.Log(hit.collider.name);
                     if (hit.collider != null)
@@ -32,7 +41,7 @@ public class HitRayFirere : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 //Debug.Log("test");
                 //Debug.Log(hit.collider.name);
                 if (hit.collider != null)

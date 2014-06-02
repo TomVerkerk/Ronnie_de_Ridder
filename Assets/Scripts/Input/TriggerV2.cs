@@ -12,7 +12,7 @@ namespace menu
         public bool State = false;
         public bool triggered = false;
 
-        void Start()
+        protected virtual void Start()
         {
             if (Disabled)
             {
@@ -20,14 +20,14 @@ namespace menu
             }
         }
 
-        public void IWillDo()
+        protected virtual void IWillDo()
         {
             if (!Disabled)
             {
                 State = true;
             }
         }
-        void OnMouseClick()
+        protected virtual void OnMouseClick()
         {
             if (!Disabled)
             {

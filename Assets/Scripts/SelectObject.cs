@@ -19,6 +19,18 @@ public class SelectObject : MonoBehaviour {
 	public GameObject camera;
 	public GameObject cube;
 
+<<<<<<< HEAD
+=======
+	// Use this for initialization
+	void Start () {
+        Application.LoadLevelAdditive("UI-Cam");
+		screenPercX = Screen.width/100;
+		screenPercY = Screen.height/100;
+		arrowLeft.pixelInset = new Rect(0,0,Screen.width*0.2f,Screen.height);
+		arrowRight.pixelInset = new Rect(Screen.width*0.8f,0,Screen.width*0.2f,Screen.height);
+	}
+	
+>>>>>>> ed678e45724f1dfabed3d8e1848b0c92a5a5b975
 	// Update is called once per frame
 	void Update () {
 		if(arrived == false && start == false)

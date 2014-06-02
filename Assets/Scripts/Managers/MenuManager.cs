@@ -8,6 +8,7 @@ namespace menu
         public TriggerV2[] buttons;
         public MoveToV2[] Menus;
         public int currentMenuID;
+        private int MenuLastFrame;
         // Use this for initialization
         void Start()
         {
