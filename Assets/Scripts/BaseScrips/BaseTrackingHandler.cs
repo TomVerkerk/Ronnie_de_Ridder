@@ -78,6 +78,8 @@ public class BaseTrackingHandler : MonoBehaviour,
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
         Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
         ParticleEmitter[] EmitterComponets = GetComponentsInChildren<ParticleEmitter>(true);
+        Light[] LightComponents = GetComponentsInChildren<Light>(true);
+        Animator[] AnimatorComponents = GetComponentsInChildren<Animator>(true);
 
         // Disable rendering:
         foreach (Renderer component in rendererComponents)
@@ -92,6 +94,14 @@ public class BaseTrackingHandler : MonoBehaviour,
         }
 
         foreach (ParticleEmitter componet in EmitterComponets)
+        {
+            componet.enabled = status;
+        }
+        foreach (Light componet in LightComponents)
+        {
+            componet.enabled = status;
+        }
+        foreach (Animator componet in AnimatorComponents)
         {
             componet.enabled = status;
         }
