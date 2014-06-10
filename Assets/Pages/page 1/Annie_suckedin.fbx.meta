@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 3337a6500146dc74b921580fd40ce235
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: chest
+    100004: Cube
+    100006: head
+    100008: head.e
+    100010: hips
+    100012: L_ankle
+    100014: L_ankle.Goal
+    100016: L_colarbone
+    100018: L_elbow
+    100020: L_feetball
+    100022: L_heel
+    100024: L_hip
+    100026: L_hip.Pole
+    100028: L_knee
+    100030: L_shoulder
+    100032: L_shoulder.Pole
+    100034: L_toes
+    100036: L_toes.Goal
+    100038: L_wrist.e
+    100040: L_wrist.e.Goal
+    100042: middle
+    100044: neck
+    100046: neck.Goal
+    100048: Null
+    100050: R_ankle
+    100052: R_ankle.Goal
+    100054: R_colarbone
+    100056: R_elbow
+    100058: R_feetball
+    100060: R_heel
+    100062: R_hip
+    100064: R_hip.Pole
+    100066: R_knee
+    100068: R_shoulder
+    100070: R_shoulder.Pole
+    100072: R_toes
+    100074: R_toes.Goal
+    100076: R_wrist.e
+    100078: R_wrist.e.Goal
+    100080: Root
+    100082: spline1
+    400000: //RootNode
+    400002: chest
+    400004: Cube
+    400006: head
+    400008: head.e
+    400010: hips
+    400012: L_ankle
+    400014: L_ankle.Goal
+    400016: L_colarbone
+    400018: L_elbow
+    400020: L_feetball
+    400022: L_heel
+    400024: L_hip
+    400026: L_hip.Pole
+    400028: L_knee
+    400030: L_shoulder
+    400032: L_shoulder.Pole
+    400034: L_toes
+    400036: L_toes.Goal
+    400038: L_wrist.e
+    400040: L_wrist.e.Goal
+    400042: middle
+    400044: neck
+    400046: neck.Goal
+    400048: Null
+    400050: R_ankle
+    400052: R_ankle.Goal
+    400054: R_colarbone
+    400056: R_elbow
+    400058: R_feetball
+    400060: R_heel
+    400062: R_hip
+    400064: R_hip.Pole
+    400066: R_knee
+    400068: R_shoulder
+    400070: R_shoulder.Pole
+    400072: R_toes
+    400074: R_toes.Goal
+    400076: R_wrist.e
+    400078: R_wrist.e.Goal
+    400080: Root
+    400082: spline1
+    4300000: Cube
+    7400000: SuckedIn
+    9500000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: SuckedIn
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 280
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube/Null
+        weight: 1
+      - path: Cube/Root
+        weight: 1
+      - path: Cube/Root/spline1
+        weight: 1
+      - path: Cube/Root/spline1/hips
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip/L_knee
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip/L_knee/L_ankle
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip/L_knee/L_ankle/L_feetball
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip/L_knee/L_ankle/L_feetball/L_heel
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip/L_knee/L_ankle/L_feetball/L_toes
+        weight: 1
+      - path: Cube/Root/spline1/hips/L_hip.Pole
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip/R_knee
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip/R_knee/R_ankle
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip/R_knee/R_ankle/R_feetball
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip/R_knee/R_ankle/R_feetball/R_heel
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip/R_knee/R_ankle/R_feetball/R_toes
+        weight: 1
+      - path: Cube/Root/spline1/hips/R_hip.Pole
+        weight: 1
+      - path: Cube/Root/spline1/L_wrist.e.Goal
+        weight: 1
+      - path: Cube/Root/spline1/middle
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/L_colarbone
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/L_colarbone/L_shoulder
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/L_colarbone/L_shoulder/L_elbow
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/L_colarbone/L_shoulder/L_elbow/L_wrist.e
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/L_colarbone/L_shoulder.Pole
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/neck
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/neck/head
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/neck/head/head.e
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/R_colarbone
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/R_colarbone/R_shoulder
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/R_colarbone/R_shoulder/R_elbow
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/R_colarbone/R_shoulder/R_elbow/R_wrist.e
+        weight: 1
+      - path: Cube/Root/spline1/middle/chest/R_colarbone/R_shoulder.Pole
+        weight: 1
+      - path: Cube/Root/spline1/neck.Goal
+        weight: 1
+      - path: Cube/Root/spline1/R_wrist.e.Goal
+        weight: 1
+      - path: L_ankle.Goal
+        weight: 1
+      - path: L_ankle.Goal/L_toes.Goal
+        weight: 1
+      - path: R_ankle.Goal
+        weight: 1
+      - path: R_ankle.Goal/R_toes.Goal
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

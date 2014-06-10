@@ -16,13 +16,17 @@ namespace Orbital
             {
                 parentobj = transform.parent.gameObject.GetComponent<StellarObject>();
                 parentPos = transform.parent;
-            }
+            }else{
+				parentPos=parentobj.transform;
+			}
+
         }
 
         void FixedUpdate()
         {
             if (parentPos != null && parentobj.active)
             {
+				rigidbody.isKinematic=false;
                 Vector3 diff = parentPos.position - transform.position;
                 Vector3 direction = diff.normalized ;
                 float gravitationalForce = (parentobj.mass * mass * gravitationalConstant) / diff.sqrMagnitude;

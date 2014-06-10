@@ -10,19 +10,16 @@ namespace Orbital
         {
             active = false;
             mass = 100f;
-            particleSystem.emissionRate = 0f;
+            if (particleSystem != null)
+               particleSystem.emissionRate = 0f;
         }
 
 
         void Update()
         {
             if (active)
-            {
                 if (particleSystem != null)
-                {
                     particleSystem.emissionRate = 100f;
-                }
-            }
         }
 
         void OnCollisionEnter(Collision col)
