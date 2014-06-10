@@ -4,6 +4,7 @@ using System.Collections;
 public class WallCollider : MonoBehaviour {
 
 	public float fadeSpeed;
+	public SelectObject selectedObject;
 	private bool fading = false;
 	private Color customColor;
 	private Color emptyColor;
@@ -14,7 +15,6 @@ public class WallCollider : MonoBehaviour {
 		customColor.g = 2;
 		customColor.b = 4;
 		customColor.a = 0.1f;
-		//emptyColor = customColor;
 		emptyColor.a = 0;
 	}
 	
@@ -30,6 +30,8 @@ public class WallCollider : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "Moveable")
 		{
+			selectedObject.arrived = true;
+			col.transform.position -= selectedObject.target*0.01f;
 			renderer.material.SetColor("_Color",customColor);
 			fading = true;
 		}
