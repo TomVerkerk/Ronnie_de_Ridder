@@ -111,6 +111,7 @@ MonoBehaviour:
   - waves flow slowly
   - rivers flow quicker than waves
   - The cake is a lie
+  - lies lies lies all lies
   TextScale:
   - 1
   - .699999988
@@ -118,6 +119,7 @@ MonoBehaviour:
   - .300000012
   - 1
   - 2
+  - .0500000007
   letterSize: {x: 1.54999995, y: 3}
   voidhole: {fileID: 0}
 --- !u!4 &56073739
@@ -127,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 56073737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .358562469, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3528,7 +3530,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a88c225b69241164ab829bccf61d8845, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
