@@ -11,9 +11,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
   - enabled: 1
     path: Assets/Scenes/Debug/CamTest.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Debug/darkhole.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Debug/fireworks.unity
   - enabled: 1
     path: Assets/Scenes/UI-Cam.unity

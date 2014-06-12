@@ -22,14 +22,8 @@ public class SelectObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Application.LoadLevelAdditive("UI-Cam");
-<<<<<<< HEAD
 		cam = ARcamera.gameObject.GetComponent<Camera>();
 	}
-
-=======
-	}
-	
->>>>>>> origin/master
 	// Update is called once per frame
 	void Update () {
 		if(arrived == false && start == false)
@@ -78,7 +72,7 @@ public class SelectObject : MonoBehaviour {
 					Ray swipeRay = cam.ScreenPointToRay(screenPoint);
 					float swipeDis = Vector3.Distance(cam.transform.position,selected.transform.position);
 					target = swipeRay.GetPoint(swipeDis);
-					target.y = 0.036f;
+					target.y = selected.transform.position.y;
 					arrived = false;
 				}
 				else
