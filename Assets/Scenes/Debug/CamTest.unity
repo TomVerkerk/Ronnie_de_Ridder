@@ -3552,7 +3552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text:
-  - HelloWorld
+  - Cookies are awesom
   TextScale:
   - 0
   - 0
@@ -10247,7 +10247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mTrackableName: Page1
-  mPreviousScale: {x: 10.5500002, y: 10.5500002, z: 10.5500002}
+  mPreviousScale: {x: 567, y: 567, z: 567}
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: QCAR/GameLAb.xml
