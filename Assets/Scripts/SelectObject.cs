@@ -72,7 +72,18 @@ public class SelectObject : MonoBehaviour {
 					Ray swipeRay = cam.ScreenPointToRay(screenPoint);
 					float swipeDis = Vector3.Distance(cam.transform.position,selected.transform.position);
 					target = swipeRay.GetPoint(swipeDis);
-					target.y = selected.transform.position.y;
+					if(selected.transform.gameObject.GetComponent<MoveInfo>().constrainAxis.x == 0)
+					{
+						target.x = selected.transform.position.x;
+					}
+					if(selected.transform.gameObject.GetComponent<MoveInfo>().constrainAxis.y == 0)
+					{
+						target.y = selected.transform.position.y;
+					}
+					if(selected.transform.gameObject.GetComponent<MoveInfo>().constrainAxis.z == 0)
+					{
+						target.z = selected.transform.position.z;
+					}
 					arrived = false;
 				}
 				else
