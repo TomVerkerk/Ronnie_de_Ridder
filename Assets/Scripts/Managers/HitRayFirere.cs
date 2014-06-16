@@ -25,13 +25,9 @@ public class HitRayFirere : MonoBehaviour
                 if (Input.GetTouch(i).phase.Equals(TouchPhase.Began))
                 {
                     touch = Input.GetTouch(i);
-                    //Ray ray = SecondaryCamera.ViewportPointToRay(new Vector3(touch.position.x, touch.position.y, 0));
                     hit = Physics2D.Raycast(cam.ScreenToWorldPoint(touch.position), Vector2.zero);
-                    //Debug.Log("test");
-                    //Debug.Log(hit.collider.name);
                     if (hit.collider != null)
                     {
-                        //Debug.Log("STEVE!!");
                         hit.transform.gameObject.SendMessage("IWillDo", SendMessageOptions.DontRequireReceiver);
                     }
                 }
@@ -42,11 +38,8 @@ public class HitRayFirere : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 hit = Physics2D.Raycast(cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                //Debug.Log("test");
-                //Debug.Log(hit.collider.name);
                 if (hit.collider != null)
                 {
-                    //Debug.Log("STEVE!!");
                     hit.transform.gameObject.SendMessage("IWillDo", SendMessageOptions.DontRequireReceiver);
                 }
             }

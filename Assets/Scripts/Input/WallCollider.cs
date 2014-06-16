@@ -1,49 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WallCollider : MonoBehaviour {
+public class WallCollider : MonoBehaviour
+{
 
-	public float fadeSpeed;
-	public SelectObject selectedObject;
-	private bool fading = false;
-	private Color customColor;
-	private Color emptyColor;
+    public float fadeSpeed;
+    public SelectObject selectedObject;
+    private bool fading = false;
+    private Color customColor;
+    private Color emptyColor;
 
-	// Use this for initialization
-	void Start () {
-		customColor.r = 1;
-		customColor.g = 2;
-		customColor.b = 4;
-		customColor.a = 0.1f;
-		emptyColor.a = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(fading == true)
-		{
-			Hit();
-		}
-	}
+    void Start()
+    {
+        customColor.r = 1;
+        customColor.g = 2;
+        customColor.b = 4;
+        customColor.a = 0.1f;
+        emptyColor.a = 0;
+    }
 
-	void OnCollisionEnter(Collision col)
-	{
-		if(col.gameObject.tag == "Moveable")
-		{
-			selectedObject.arrived = true;
-			col.transform.position -= selectedObject.target*0.01f;
-			renderer.material.SetColor("_Color",customColor);
-			fading = true;
-		}
-	}
+    void Update()
+    {
+        if (fading == true)
+        {
+            Hit();
+        }
+    }
 
-	void Hit()
-	{
-		renderer.material.color = Color.Lerp(renderer.material.color,emptyColor, fadeSpeed * Time.deltaTime);
-		if(renderer.material.color.a < 0.01f)
-		{
-			renderer.material.color = emptyColor;
-			fading = false;
-		}
-	}
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == TagConst.moveAble)
+        {
+            selectedObject.arrived = true;
+            col.transform.position -= selectedObject.target * 0.01f;
+            renderer.material.SetColor("_Color", customColor);
+            fading = true;
+        }
+    }
+
+    void Hit()
+    {
+        renderer.material.color = Color.Lerp(renderer.material.color, emptyColor, fadeSpeed * Time.deltaTime);
+        if (renderer.material.color.a < 0.01f)
+        {
+            renderer.material.color = emptyColor;
+            fading = false;
+        }
+    }
 }
