@@ -112,6 +112,7 @@ MonoBehaviour:
   - rivers flow quicker than waves
   - The cake is a lie
   - lies lies lies all lies
+  - A book is like a portal
   TextScale:
   - 1
   - .699999988
@@ -120,8 +121,10 @@ MonoBehaviour:
   - 1
   - 2
   - .300000012
+  - .5
   letterSize: {x: 1.54999995, y: 3}
   voidhole: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!4 &56073739
 Transform:
   m_ObjectHideFlags: 0
@@ -130,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 56073737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .358562469, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!114 &56073740

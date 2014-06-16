@@ -9,14 +9,18 @@ public class StringToModels : MonoBehaviour
     [SerializeField]
     float[] TextScale;
     [SerializeField]
-     const Vector2 letterSize = new Vector2(1.55f, 3f);
+    private Vector2 letterSize = new Vector2(1.55f, 3f);
     [SerializeField]
     private Orbital.DarkHoleEffects voidhole;
+    [SerializeField]
+    Transform parent;
     void Start()
     {
         // if(Text.Length!=TextScale.Length)
         //      TextScale=new float[Text.Length];
-
+        if (parent == null)
+            parent = transform;
+        letterSize = new Vector2(1.55f, 3f);
         Vector3 offSet;
         Vector3 toAdded;
         float yOffSet = 0f;
@@ -24,9 +28,9 @@ public class StringToModels : MonoBehaviour
         for (int i = 0; i < li; i++)
         {
             if (i < TextScale.Length)
-                yOffSet -= letterSize.y * TextScale[i];
+                yOffSet -= letterSize.y * TextScale[i] * parent.localScale.y;
             else
-                yOffSet -= letterSize.y;
+                yOffSet -= letterSize.y * parent.localScale.y; ;
 
             offSet = new Vector3(0f, 0f, yOffSet);
             int lj = Text[i].Length;
@@ -61,8 +65,8 @@ public class StringToModels : MonoBehaviour
             let.GetComponent<Orbital.Orbit>().parentobj = voidhole;
             let.name = " " + l;
             let.transform.parent = transform;
-            let.transform.localPosition = pos;
-            let.transform.localScale = let.transform.localScale * scale;
+            let.transform.localPosition = multiply( pos , let.transform.parent.localScale);
+            let.transform.localScale = let.transform.parent.localScale * scale;
         }
     }
 
@@ -109,5 +113,11 @@ public class StringToModels : MonoBehaviour
         }
         output = output * scale;
         return output;
+
+        
+    }
+    Vector3 multiply(Vector3 a, Vector3 b)
+    {
+       return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
     }
 }
