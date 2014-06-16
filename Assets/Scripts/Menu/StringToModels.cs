@@ -65,7 +65,7 @@ public class StringToModels : MonoBehaviour
             let.GetComponent<Orbital.Orbit>().parentobj = voidhole;
             let.name = " " + l;
             let.transform.parent = transform;
-            let.transform.localPosition = multiply( pos , let.transform.parent.localScale);
+            let.transform.localPosition = multiply( pos , let.transform.parent.localScale) + new Vector3(6,0,0);
             let.transform.localScale = let.transform.parent.localScale * scale;
         }
     }

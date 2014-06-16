@@ -8,8 +8,8 @@ namespace Orbital
         // Use this for initialization
         void Start()
         {
-            active = false;
-            mass = 100f;
+            active= false;
+            mass = 25f;
             if (particleSystem != null)
                particleSystem.emissionRate = 0f;
         }
