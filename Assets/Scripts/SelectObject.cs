@@ -21,7 +21,7 @@ public class SelectObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Application.LoadLevelAdditive("UI-Cam");
+
 		cam = ARcamera.gameObject.GetComponent<Camera>();
 	}
 	// Update is called once per frame
