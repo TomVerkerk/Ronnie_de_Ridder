@@ -10,6 +10,7 @@ public class Resetter : MonoBehaviour {
 		if(col.gameObject.tag == "Moveable")
 		{
 			col.transform.position = resetPoint;
+			col.transform.gameObject.GetComponent<SelectObject>().arrived = true;
 		}
 	}
 }
