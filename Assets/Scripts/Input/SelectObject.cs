@@ -105,7 +105,7 @@ public class SelectObject : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == TagConst.moveAble)
+                if (hit.transform.tag == TagConst.MOVEABLE)
                 {
                     if (start == true)
                     {

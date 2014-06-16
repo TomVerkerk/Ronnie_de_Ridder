@@ -81,7 +81,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour,
             component.enabled = true;
         }
 
-        Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+        //Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
     }
 
 
@@ -102,7 +102,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour,
             component.enabled = false;
         }
 
-        Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+       // Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
     }
 
     #endregion // PRIVATE_METHODS

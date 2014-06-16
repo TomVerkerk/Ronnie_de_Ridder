@@ -2,5 +2,5 @@
 using System.Collections;
 
 public class TagConst{
-    public static const string moveAble = "Moveable";
+    public const string MOVEABLE = "Moveable";
 }

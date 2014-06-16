@@ -29,7 +29,7 @@ public class WallCollider : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == TagConst.moveAble)
+        if (col.gameObject.tag == TagConst.MOVEABLE)
         {
             selectedObject.arrived = true;
             col.transform.position -= selectedObject.target * 0.01f;

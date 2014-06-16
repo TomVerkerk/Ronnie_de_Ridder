@@ -5,7 +5,6 @@ public class HitRayFirere : MonoBehaviour
 {
     [SerializeField]
     private Camera cam;
-    // Update is called once per frame
     void Start()
     {
         if (cam == null)
