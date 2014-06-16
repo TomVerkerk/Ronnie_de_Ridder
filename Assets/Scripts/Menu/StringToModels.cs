@@ -9,7 +9,7 @@ public class StringToModels : MonoBehaviour
     [SerializeField]
     float[] TextScale;
     [SerializeField]
-    Vector2 letterSize = new Vector2(1.55f, 3f);
+     const Vector2 letterSize = new Vector2(1.55f, 3f);
     [SerializeField]
     private Orbital.DarkHoleEffects voidhole;
     void Start()
