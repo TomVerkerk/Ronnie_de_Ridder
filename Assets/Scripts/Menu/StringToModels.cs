@@ -16,10 +16,15 @@ public class StringToModels : MonoBehaviour
     Transform parent;
     void Start()
     {
+        
         // if(Text.Length!=TextScale.Length)
         //      TextScale=new float[Text.Length];
         if (parent == null)
             parent = transform;
+
+        float tempZScale = parent.localScale.z;
+        parent.localScale = new Vector3(parent.localScale.x, parent.localScale.y, 1f);
+
         letterSize = new Vector2(1.55f, 3f);
         Vector3 offSet;
         Vector3 toAdded;
@@ -46,6 +51,8 @@ public class StringToModels : MonoBehaviour
             voidhole = GetComponent<Orbital.DarkHoleEffects>();
         if (voidhole != null)
             voidhole.enabled = true;
+
+        parent.localScale = new Vector3(parent.localScale.x, parent.localScale.y, tempZScale);
         Destroy(this);
     }
 
