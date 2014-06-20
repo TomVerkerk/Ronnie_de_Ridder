@@ -6,9 +6,9 @@ namespace menu
     public class MoveToV2 : MonoBehaviour
     {
         public int menuID;
-        private Vector2 origen;
-        public Vector2 moveAmount;
-        public bool move;
+        private Vector2 origen; //The starting posision
+        public Vector2 moveAmount; // the amount it's going to move in any direction
+        public bool move;       // if it has moved or needs to
         public bool atNewPos = false;//true it goes to new pos. False it goes to origen
         // Use this for initialization
         void Start()
@@ -18,7 +18,6 @@ namespace menu
             {
                 origen -= moveAmount;
             }
-            //Debug.Log(this.name+ " moves " + origen);
         }
 
         // Update is called once per frame

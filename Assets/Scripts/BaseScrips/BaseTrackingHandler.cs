@@ -72,7 +72,6 @@ public class BaseTrackingHandler : MonoBehaviour,
         EnableObjects(false);
       //  Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
     }
-
     protected virtual void EnableObjects(bool status)
     {
         Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
