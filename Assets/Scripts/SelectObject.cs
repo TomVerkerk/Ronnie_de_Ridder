@@ -4,12 +4,12 @@ using System.Collections;
 public class SelectObject : MonoBehaviour {
 
 	public float minSwipePerc;
-	private RaycastHit selected;
-	private bool start = true;
-	private bool touched = false;
-	private bool unselect = false;
-	private bool retap = false;
-	private bool select = false;
+	public RaycastHit selected;
+	public bool start = true;
+	public bool touched = false;
+	public bool unselect = false;
+	public bool retap = false;
+	public bool select = false;
 	public float objectMoveSpeed;
 	private Vector2 swipeBegin;
 	private Vector2 swipeEnd;
@@ -26,7 +26,7 @@ public class SelectObject : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(arrived == false && start == false)
+		if(arrived == false && start == false && target.y >= selected.transform.position.y)
 		{
 			selected.transform.LookAt(target);
 			selected.transform.Translate(Vector3.forward * objectMoveSpeed * Time.deltaTime);
@@ -34,6 +34,10 @@ public class SelectObject : MonoBehaviour {
 			{
 				arrived = true;
 			}
+		}
+		else
+		{
+			arrived = true;
 		}
 		if(Input.touchCount==1)
 		{
@@ -106,38 +110,39 @@ public class SelectObject : MonoBehaviour {
 				{
 					if(start == true)
 					{
-						hit.transform.gameObject.renderer.material.color = Color.yellow;
+						//hit.transform.gameObject.renderer.material.color = Color.yellow;
 						select = true;
 					}
 					else if(hit.transform.gameObject.name != selected.transform.gameObject.name)
 					{
-						hit.transform.gameObject.renderer.material.color = Color.yellow;
+					//	hit.transform.gameObject.renderer.material.color = Color.yellow;
 						if(unselect == false && start == false)
 						{
-							selected.transform.gameObject.renderer.material.color = Color.white;
+					//		selected.transform.gameObject.renderer.material.color = Color.white;
 						}
 						retap = false;
 						select = true;
 					}
 					else if(unselect == false && retap == false)
 					{
-						hit.transform.gameObject.renderer.material.color = Color.white;
+					//	hit.transform.gameObject.renderer.material.color = Color.white;
 						select = false;
 						retap = true;
 					}
 					else
 					{
-						hit.transform.gameObject.renderer.material.color = Color.yellow;
+					//	hit.transform.gameObject.renderer.material.color = Color.yellow;
 						retap = false;
 						select = true;
 					}
 					unselect = false;
 					selected = hit;
+					selected.transform.position = selected.transform.position + Vector3.up*5;
 					start = false;
 				}
 				else
 				{
-					selected.transform.gameObject.renderer.material.color = Color.white;
+				//	selected.transform.gameObject.renderer.material.color = Color.white;
 					unselect = true;
 					retap = false;
 					select = false;
@@ -145,7 +150,7 @@ public class SelectObject : MonoBehaviour {
 			}
 			else
 			{
-				selected.transform.gameObject.renderer.material.color = Color.white;
+			//	selected.transform.gameObject.renderer.material.color = Color.white;
 				unselect = true;
 				retap = false;
 				select = false;

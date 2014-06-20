@@ -39,6 +39,7 @@ public class NextPage : MonoBehaviour {
 			endTimer++;
 			if(endTimer >= 1300)
 			{
+				lookAt.enabled = false;
 				theEnd.enabled = true;
 			}
 		}
