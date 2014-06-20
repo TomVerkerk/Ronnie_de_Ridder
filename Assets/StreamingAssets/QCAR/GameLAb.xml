@@ -2,7 +2,8 @@
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
     <ImageTarget name="Page2" size="567.000000 423.478119" />
-    <ImageTarget name="MA_Logo" size="250.000000 251.000000" />
     <ImageTarget name="Page1" size="567.000000 425.000000" />
+    <ImageTarget name="MA_Logo" size="250.000000 251.000000" />
+    <ImageTarget name="page3" size="567.000000 425.000000" />
   </Tracking>
 </QCARConfig>
