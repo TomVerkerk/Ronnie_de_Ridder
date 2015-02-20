@@ -5,13 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/InIt.unity
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Debug/CamTest.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI-Cam.unity
   - enabled: 1
     path: Assets/Scenes/Pages.unity
